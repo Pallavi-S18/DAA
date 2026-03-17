@@ -1,0 +1,56 @@
+import java.util.*;
+
+public class Solution {
+
+    static void quickSort(int[] arr) {
+        int pivot = arr[0];
+
+        List<Integer> left = new ArrayList<Integer>();
+        List<Integer> equal = new ArrayList<Integer>();
+        List<Integer> right = new ArrayList<Integer>();
+
+        for (int x : arr) {
+            if (x < pivot) {
+                left.add(x);
+            } else if (x == pivot) {
+                equal.add(x);
+            } else {
+                right.add(x);
+            }
+        }
+
+        // Print result: left + equal + right
+        for (int x : left) {
+            System.out.print(x + " ");
+        }
+        for (int x : equal) {
+            System.out.print(x + " ");
+        }
+        for (int x : right) {
+            System.out.print(x + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        quickSort(arr);
+        sc.close();
+    }
+}
+
+
+Input (stdin)
+5
+4 5 3 7 2
+Your Output (stdout)
+3 2 4 5 7 
+Expected Output
+3 2 4 5 7
